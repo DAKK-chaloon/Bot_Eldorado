@@ -14,7 +14,7 @@ client = speech.SpeechClient()
 file_name = os.path.join(
     os.path.dirname(__file__),
     '',
-    'hello.wav')
+    'output.wav')
 
 print(file_name)
 
@@ -26,7 +26,7 @@ with io.open(file_name, 'rb') as audio_file:
 config = types.RecognitionConfig(
     encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,
     sample_rate_hertz=44100,
-    language_code='en-US')
+    language_code='fr-FR')
 
 # Detects speech in the audio file
 response = client.recognize(config, audio)
