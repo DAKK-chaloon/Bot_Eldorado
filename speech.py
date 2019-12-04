@@ -16,7 +16,7 @@ def convertToAudio(textToConvert):
     # voice gender ("neutral")
     voice = texttospeech.types.VoiceSelectionParams(
         language_code='fr-FR',
-        name='fr-FR-Standard-A',
+        name='fr-FR-Wavenet-A',
         ssml_gender=texttospeech.enums.SsmlVoiceGender.FEMALE)
 
     # Select the type of audio file you want returned
