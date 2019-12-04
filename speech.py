@@ -4,6 +4,7 @@ Note: ssml must be well-formed according to:
     https://www.w3.org/TR/speech-synthesis/
 """
 from google.cloud import texttospeech
+from settings import LANGUAGE_CODE
 
 def convertToAudio(textToConvert):
     # Instantiates a client
@@ -15,7 +16,7 @@ def convertToAudio(textToConvert):
     # Build the voice request, select the language code ("en-US") and the ssml
     # voice gender ("neutral")
     voice = texttospeech.types.VoiceSelectionParams(
-        language_code='fr-FR',
+        language_code=LANGUAGE_CODE,
         name='fr-FR-Wavenet-A',
         ssml_gender=texttospeech.enums.SsmlVoiceGender.FEMALE)
 

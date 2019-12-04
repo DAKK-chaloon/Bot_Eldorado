@@ -34,6 +34,7 @@ import sys
 
 # uses result_end_time currently only avaialble in v1p1beta, will be in v1 soon
 from google.cloud import speech_v1p1beta1 as speech
+from settings import LANGUAGE_CODE
 import pyaudio
 from six.moves import queue
 
@@ -242,7 +243,7 @@ def main():
     config = speech.types.RecognitionConfig(
         encoding=speech.enums.RecognitionConfig.AudioEncoding.LINEAR16,
         sample_rate_hertz=SAMPLE_RATE,
-        language_code='en-US',
+        language_code=LANGUAGE_CODE,
         max_alternatives=1)
     streaming_config = speech.types.StreamingRecognitionConfig(
         config=config,
