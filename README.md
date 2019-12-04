@@ -5,7 +5,7 @@
 
 - Run CMD and move in bot directory
 - Write in the CMD "venv\Scripts\activate" and press enter
-- Write "set GOOGLE_APPLICATION CREDENTIAL=[PATH]" and replace [PATH] by the path of your credential
+- Write "set GOOGLE_APPLICATION CREDENTIALS=[PATH]" and replace [PATH] by the path of your credential
 
 # Run
 
