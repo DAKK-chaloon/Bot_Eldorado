@@ -1,10 +1,11 @@
 # bot.py
 import discord
-import random
 import asyncio
 import ffmpeg
 
 from speech import convertToAudio
+from dialog import sayToBot
+
 from discord.ext import commands
 from discord.ext.commands import Bot
 from discord.voice_client import VoiceClient
@@ -18,39 +19,24 @@ bot = commands.Bot(command_prefix=COMMAND)
 
 @bot.event
 async def on_ready():
-    print(f'{bot.user.name} has connected to Discord!')
+    print(f'{bot.user.name} est connecté à Discord!')
 
-@bot.command(name='99', help='Responds with a random quote from Brooklyn 99')
-async def nine_nine(ctx):
-    brooklyn_99_quotes = [
-        'I\'m the human form of the 💯 emoji.',
-        'Bingpot!',
-        (
-            'Cool. Cool cool cool cool cool cool cool, '
-            'no doubt no doubt no doubt no doubt.'
-        ),
-    ]
-
-    response = random.choice(brooklyn_99_quotes)
-    await ctx.send(response)
-
-@bot.command(name='talk', help='Convert text to audio and say it in voice channel, please write your sentence between quotes')
+@bot.command(name='talk', help='"Phrase à envoyer" - Le bot reçoit la phrase passé en argument et y répond.')
 async def textToTalk(ctx, text):
+    # Envoi au bot le text et génère sa réponse
+    reply = sayToBot(text)
     # Convertie le texte passé en paramètre, fonction de speech.py
-    convertToAudio(text)
+    convertToAudio(reply)
     # Se connecte au channel de l'expéditeur du message et lis le fichier créé précedemment
     try:
         channel = ctx.message.author.voice.channel
-        if not channel:
-            await ctx.send("You are not connected to a voice channel")
-            return
         voice = get(bot.voice_clients, guild=ctx.guild)
         if voice and voice.is_connected():
             await voice.move_to(channel)
         else:
             voice = await channel.connect()
-        voice.play(discord.FFmpegPCMAudio(executable="./ffmpeg/bin/ffmpeg.exe", source="output.mp3"))
+        voice.play(discord.FFmpegPCMAudio(executable="./ffmpeg/bin/ffmpeg.exe", source="output.wav"))
     except:
-        await ctx.send("You are not connected to a voice channel")
+        await ctx.send("Vous n'êtes pas connecté à un salon vocal.")
     
 bot.run(TOKEN)

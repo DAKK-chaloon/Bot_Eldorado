@@ -32,5 +32,3 @@ def convertToAudio(textToConvert):
         # Write the response to the output file.
         out.write(response.audio_content)
         print('Audio content written to file "output.wav"')
-
-convertToAudio("Bonjour !")
