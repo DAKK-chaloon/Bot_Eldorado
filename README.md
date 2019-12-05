@@ -4,6 +4,7 @@ Eldorado is a project of a Voice Cleverbot made for Discord and written in Pytho
 
 # Installation
 
+- Install GoogleSDK and Python 3.7.0.
 - Run CMD and move in bot directory.
 - Write in the CMD "venv\Scripts\activate" and press enter.
 - Write "set GOOGLE_APPLICATION CREDENTIALS=[PATH]" and replace [PATH] by the path of your credential.
