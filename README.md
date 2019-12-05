@@ -31,3 +31,6 @@ Eldorado is a project of a Voice Cleverbot made for Discord and written in Pytho
     - https://cloud.google.com/text-to-speech/docs/audio-profiles?hl=fr
     - https://cloud.google.com/text-to-speech/docs/reference/libraries?hl=fr
     - https://cloud.google.com/text-to-speech/docs/quickstart-client-libraries?hl=fr
+
+- Redirect audio output to input :
+    - https://www.howtogeek.com/364369/how-to-record-your-pc%E2%80%99s-audio-with-virtual-audio-cable/
