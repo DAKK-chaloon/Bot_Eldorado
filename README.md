@@ -2,6 +2,10 @@
 
 Eldorado is a project of a Voice Cleverbot made for Discord and written in Python.
 
+# Disclaimer
+
+This bot is not finished, the objective is that it can be in a vocal channel and chat directly with a person.
+
 # Installation
 
 - Install GoogleSDK and Python 3.7.0.
